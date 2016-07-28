@@ -11,19 +11,22 @@ module Gitguard
     end
 
     def execute(&block)
-      raise Error, 'There are files that need to be committed first. Run `git status`' unless clean?
+      unless clean?
+        $stderr.puts "\e[31m[gitguard] There are files that need to be committed first. Run `git status`\e[0m"
+        exit(1)
+      end
       yield
       root_dir = DirSearch.up{|dir| Dir.exist?(File.join(dir, '.git')) }
       Dir.chdir(root_dir) do
         cmd = "git add . && git commit -m #{Shellwords.escape(user_command)}"
         unless system(cmd)
-          raise "Error on #{cmd}"
+          raise Error, "Error on #{cmd}"
         end
       end
     end
 
     def clean?
-      system("git diff --exit-code")
+      system("git diff --exit-code > /dev/null")
     end
 
   end
