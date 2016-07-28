@@ -19,9 +19,14 @@ module Gitguard
       root_dir = DirSearch.up{|dir| Dir.exist?(File.join(dir, '.git')) }
       Dir.chdir(root_dir) do
         cmd = "git add . && git commit -m #{Shellwords.escape(user_command)}"
-        unless system(cmd)
-          raise Error, "Error on #{cmd}"
+        puts "\e[34m#{cmd}"
+        r = false
+        begin
+          r = system(cmd)
+        ensure
+          print "\e[0m"
         end
+        raise Error, "Error on #{cmd}" unless r
       end
     end
 
