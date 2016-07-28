@@ -16,5 +16,13 @@ module Gitguard
     def target_rake_task?(task)
       Config.target_rake_task?(task)
     end
+
+    def enabled?
+      !disabled?
+    end
+
+    def disabled?
+      ENV['GITGUARD'] =~ /false|no|off|0/i
+    end
   end
 end
