@@ -1,15 +1,13 @@
-# Gitguard::Rails
+# gitguard-rails
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gitguard/rails`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+`gitguard-rails` supports to avoid mixing human code and generated code in a git commit.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'gitguard-rails'
+gem 'gitguard-rails', group: :development
 ```
 
 And then execute:
@@ -22,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
+
+
 
 ## Development
 
