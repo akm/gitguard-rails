@@ -1,7 +1,10 @@
+require "gitguard"
+
 require "gitguard/rails/version"
+require 'gitguard/rails/railtie'
 
 module Gitguard
   module Rails
-    # Your code goes here...
+    autoload :CommandsTasks, 'gitguard/rails/commands_tasks'
   end
 end
