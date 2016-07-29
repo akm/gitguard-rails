@@ -43,14 +43,22 @@ Or install it yourself as:
 ## Setup
 
 ```bash
-bin/rails generate gitguard:install
+$ bin/rails generate gitguard:install
 ```
 
 A file `.gitguard` will be generated. You can configure the behavior by editing the file.
 
 ## Usage
 
-Nothing special to do after setup.
+Nothing special to do after setup. You can use `rails generate` and `rake` like before.
+
+### Disabling
+
+If you don't want to commit the changes, you can disable gitguard by environment variable `GITGUARD` like this:
+
+```bash
+$ bin/rails db:migrate GITGUARD=off
+```
 
 
 ## Development
