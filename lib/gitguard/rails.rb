@@ -1,6 +1,5 @@
 require "gitguard"
 
-require "gitguard/rails/version"
 require 'gitguard/rails/railtie'
 
 module Gitguard

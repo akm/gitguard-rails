@@ -1,3 +1,5 @@
+require "gitguard/version"
+
 module Gitguard
   autoload :Config   , 'gitguard/config'
   autoload :DirSearch, 'gitguard/dir_search'
