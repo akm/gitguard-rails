@@ -5,7 +5,7 @@ require 'gitguard/rails/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "gitguard"
-  spec.version       = Gitguard::Rails::VERSION
+  spec.version       = Gitguard::VERSION
   spec.authors       = ["akm"]
   spec.email         = ["akm2000@gmail.com"]
 
