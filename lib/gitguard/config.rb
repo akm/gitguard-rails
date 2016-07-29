@@ -19,6 +19,7 @@ module Gitguard
     def config_path
       unless @config_path
         dir = DirSearch.up{|dir| File.readable?(File.join(dir, CONFIG_FILENAME)) }
+        raise Error, "File not found: #{CONFIG_FILENAME}" unless dir
         @config_path = File.join(dir, CONFIG_FILENAME)
       end
       @config_path

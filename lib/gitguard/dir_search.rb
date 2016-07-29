@@ -11,13 +11,9 @@ module Gitguard
       return dir if yield(dir)
       parent = File.dirname(dir)
       if dir == parent
-        raise DirNotFound, "#{dir} doesn't match the condition"
+        return nil
       else
-        begin
-          return up(parent, &block)
-        rescue DirNotFound
-          raise DirNotFound, "#{dir} doesn't match the condition"
-        end
+        return up(parent, &block)
       end
     end
   end

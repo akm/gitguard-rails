@@ -17,6 +17,7 @@ module Gitguard
       end
       yield
       root_dir = DirSearch.up{|dir| Dir.exist?(File.join(dir, '.git')) }
+      raise Error, "Directory not found: .git" unless root_dir
       Dir.chdir(root_dir) do
         cmd = "git add . && git commit -m #{Shellwords.escape(user_command)}"
         puts "\e[34m#{cmd}"
