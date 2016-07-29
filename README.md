@@ -2,8 +2,26 @@
 
 `gitguard-rails` supports to avoid mixing human code and generated code in a git commit.
 
-If there is/are change(s) to be commit, `gitguard-rails` stops the command
-before you run command which generates something.
+If there is/are change(s) to be commit, `gitguard-rails` quits the command
+before you run command which generates something like this:
+
+```bash
+$ bin/rails g migtation create_books title:string
+[gitguard] There are files that need to be committed first.
+[gitguard] git status
+On branch features/gitguard
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   Gemfile
+	modified:   Gemfile.lock
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+`gitguard-rails` supports not only `bin/rails generate` but `rake` tasks.
+You can configure rake task names in `.gitguard` file.
 
 
 ## Installation

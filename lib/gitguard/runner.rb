@@ -12,7 +12,9 @@ module Gitguard
 
     def execute(&block)
       unless clean?
-        $stderr.puts "\e[31m[gitguard] There are files that need to be committed first. Run `git status`\e[0m"
+        $stderr.puts "\e[31m[gitguard] There are files that need to be committed first.\e[0m"
+        $stderr.puts "[gitguard] git status"
+        system 'git status'
         exit(1)
       end
       yield
