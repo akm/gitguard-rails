@@ -1,10 +1,9 @@
-require 'gitguard/rails'
+require 'gitguard'
 
 require 'rails'
 require 'rails/commands/commands_tasks'
 
 module Gitguard
-  module Rails
     class Railtie < ::Rails::Railtie
       generators do
         ::Rails::CommandsTasks.__send__(:prepend, ::Gitguard::Rails::CommandsTasks)
@@ -14,5 +13,4 @@ module Gitguard
         ::Rake::Application.__send__(:prepend, ::Gitguard::RakeApplication)
       end
     end
-  end
 end
