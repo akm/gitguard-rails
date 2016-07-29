@@ -1,8 +1,8 @@
-# gitguard-rails
+# gitguard
 
-`gitguard-rails` supports to avoid mixing human code and generated code in a git commit.
+`gitguard` supports to avoid mixing human code and generated code in a git commit.
 
-If there is/are change(s) to be commit, `gitguard-rails` quits the command
+If there is/are change(s) to be commit, `gitguard` quits the command
 before you run command which generates something like this:
 
 ```bash
@@ -20,7 +20,7 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-`gitguard-rails` supports not only `bin/rails generate` but `rake` tasks.
+`gitguard` supports not only `bin/rails generate` but `rake` tasks.
 You can configure rake task names in `.gitguard` file.
 
 
@@ -29,7 +29,7 @@ You can configure rake task names in `.gitguard` file.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'gitguard-rails', group: :development
+gem 'gitguard', group: :development
 ```
 
 And then execute:
@@ -38,7 +38,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install gitguard-rails
+    $ gem install gitguard
 
 ## Setup
 
@@ -61,7 +61,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/akm/gitguard-rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/akm/gitguard. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

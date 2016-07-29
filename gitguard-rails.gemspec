@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'gitguard/rails/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "gitguard-rails"
+  spec.name          = "gitguard"
   spec.version       = Gitguard::Rails::VERSION
   spec.authors       = ["akm"]
   spec.email         = ["akm2000@gmail.com"]
 
   spec.summary       = %q{Keep commit clear by checking workspace before generate something}
   spec.description   = %q{Keep commit clear by checking workspace before generate something}
-  spec.homepage      = "https://github.com/akm/gitguard-rails"
+  spec.homepage      = "https://github.com/akm/gitguard"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
