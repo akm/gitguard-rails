@@ -20,6 +20,9 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
+If there is no change to be commit, `gitguard` automatically commits
+the changes which is made by the command.
+
 `gitguard` supports not only `bin/rails generate` but `rake` tasks.
 You can configure rake task names in `.gitguard` file.
 
