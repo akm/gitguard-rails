@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Gitguard::Rails do
+describe Gitguard do
   it 'has a version number' do
-    expect(Gitguard::Rails::VERSION).not_to be nil
+    expect(Gitguard::VERSION).not_to be nil
   end
 
   it 'does something useful' do
