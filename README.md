@@ -2,6 +2,10 @@
 
 `gitguard-rails` supports to avoid mixing human code and generated code in a git commit.
 
+If there is/are change(s) to be commit, `gitguard-rails` stops the command
+before you run command which generates something.
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -18,10 +22,17 @@ Or install it yourself as:
 
     $ gem install gitguard-rails
 
+## Setup
+
+```bash
+bin/rails generate gitguard:install
+```
+
+A file `.gitguard` will be generated. You can configure the behavior by editing the file.
+
 ## Usage
 
-
-
+Nothing special to do after setup.
 
 
 ## Development
@@ -32,7 +43,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/gitguard-rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/akm/gitguard-rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
