@@ -18,6 +18,7 @@ module Gitguard
         exit(1)
       end
       yield
+      return if clean?
       root_dir = DirSearch.up{|dir| Dir.exist?(File.join(dir, '.git')) }
       raise Error, "Directory not found: .git" unless root_dir
       Dir.chdir(root_dir) do
