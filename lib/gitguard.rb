@@ -1,4 +1,5 @@
 require "gitguard/version"
+require 'gitguard/railtie'
 
 module Gitguard
   autoload :Config   , 'gitguard/config'
