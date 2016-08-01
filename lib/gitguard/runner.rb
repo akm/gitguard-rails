@@ -34,8 +34,28 @@ module Gitguard
       end
     end
 
+    def at_root(&block)
+      root_dir = DirSearch.up{|dir| Dir.exist?(File.join(dir, '.git')) }
+      raise Error, "Directory not found: .git" unless root_dir
+      Dir.chdir(root_dir, &block)
+    end
+
     def clean?
-      system("git diff --exit-code > /dev/null")
+      unchanged? && no_untracked_files?
+    end
+
+    def unchanged?
+      system("git diff --exit-code")
+    end
+    def changed?
+      !unchanged?
+    end
+
+    def no_untracked_files?
+      at_root{ `git ls-files --others --exclude-standard`.empty? }
+    end
+    def untracked_files?
+      !no_untracked_files?
     end
 
   end
