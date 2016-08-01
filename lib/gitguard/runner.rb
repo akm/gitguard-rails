@@ -19,9 +19,7 @@ module Gitguard
       end
       yield
       return if clean?
-      root_dir = DirSearch.up{|dir| Dir.exist?(File.join(dir, '.git')) }
-      raise Error, "Directory not found: .git" unless root_dir
-      Dir.chdir(root_dir) do
+      at_root do
         cmd = "git add . && git commit -m #{Shellwords.escape(user_command)}"
         puts "\e[34m#{cmd}"
         r = false
@@ -34,8 +32,28 @@ module Gitguard
       end
     end
 
+    def at_root(&block)
+      root_dir = DirSearch.up{|dir| Dir.exist?(File.join(dir, '.git')) }
+      raise Error, "Directory not found: .git" unless root_dir
+      Dir.chdir(root_dir, &block)
+    end
+
     def clean?
+      unchanged? && no_untracked_files?
+    end
+
+    def unchanged?
       system("git diff --exit-code > /dev/null")
+    end
+    def changed?
+      !unchanged?
+    end
+
+    def no_untracked_files?
+      at_root{ `git ls-files --others --exclude-standard`.empty? }
+    end
+    def untracked_files?
+      !no_untracked_files?
     end
 
   end
