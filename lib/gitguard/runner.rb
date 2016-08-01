@@ -43,7 +43,7 @@ module Gitguard
     end
 
     def unchanged?
-      system("git diff --exit-code")
+      system("git diff --exit-code > /dev/null")
     end
     def changed?
       !unchanged?
