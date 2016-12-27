@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Keep commit clear by checking workspace before generate something}
   spec.description   = %q{Keep commit clear by checking workspace before generate something}
-  spec.homepage      = "https://github.com/akm/gitguard"
+  spec.homepage      = "https://github.com/akm/gitguard-rails"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
